@@ -1,0 +1,7 @@
+export { default as Hero }         from './Hero'
+export { default as Marquee }      from './Marquee'
+export { default as Story }        from './Story'
+export { default as Products }     from './Products'
+export { default as Process }      from './Process'
+export { default as Testimonials } from './Testimonials'
+export { default as Newsletter }   from './Newsletter'

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { navLinks } from "@/lib/data";
 import { useBreakpoint } from "@/lib/hooks/useBreakPoint";
 import { usePathname, useRouter } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -18,6 +19,17 @@ export default function Navbar() {
 
     const pathname = usePathname();
     const router = useRouter();
+
+    const toggleTheme = () => {
+        const html = document.documentElement;
+        if (html.dataset.theme === "light") {
+            html.dataset.theme = "dark";
+            localStorage.setItem("theme", "dark");
+        } else {
+            html.dataset.theme = "light";
+            localStorage.setItem("theme", "light");
+        }
+    };
 
     return (
         <>
@@ -80,7 +92,7 @@ export default function Navbar() {
                             <Link
                                 key={link.label}
                                 href={link.href}
-                                // scroll={false}
+                                scroll={false}
                                 style={{
                                     fontFamily: "var(--font-inter)",
                                     fontWeight: 300,
@@ -105,6 +117,8 @@ export default function Navbar() {
                         ))}
                     </div>
                 )}
+
+                <ThemeToggle/>
 
                 <div
                     style={{

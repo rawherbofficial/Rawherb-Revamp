@@ -35,11 +35,11 @@ export default function HeroText() {
             <p
                 style={{
                     fontFamily: "var(--font-inter)",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     fontSize: "10px",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
-                    color: "var(--green-l)",
+                    color: "var(--green-xl)",
                     marginBottom: "24px",
                 }}
             >
@@ -112,7 +112,7 @@ export default function HeroText() {
                         ...linkBase,
                         fontWeight: 300,
                         background: "transparent",
-                        color: "var(--cream)",
+                        color: "var(--cream-dim)",
                         border: "1px solid rgba(74,124,89,0.4)",
                     }}
                     onMouseEnter={(e) => {
@@ -122,7 +122,7 @@ export default function HeroText() {
                     onMouseLeave={(e) => {
                         e.currentTarget.style.transform = "translateY(0)";
                         e.currentTarget.style.borderColor =
-                            "rgba(74,124,89,0.4)";
+                            "rgba(74,124,89,0.6)";
                     }}
                 >
                     {HERO_CTA_SECONDARY}

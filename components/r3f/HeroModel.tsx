@@ -21,7 +21,7 @@ export default function HeroModel({ mouseX, mouseY }: Props) {
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
         scene.position.sub(center);
-        scene.scale.setScalar(6 / maxDim);
+        scene.scale.setScalar(4 / maxDim);
     }, [scene]);
 
     scene.traverse((child) => {

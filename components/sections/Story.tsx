@@ -27,7 +27,7 @@ export default function Story() {
                 <RevealOnScroll>
                     <div style={{ height: 560, position: "relative" }}>
                         {/* Grid SVG decoration */}
-                        <svg
+                        {/* <svg
                             style={{
                                 position: "absolute",
                                 inset: 0,
@@ -73,14 +73,54 @@ export default function Story() {
                                 stroke="var(--green)"
                                 strokeWidth="0.5"
                             />
-                        </svg>
+                        </svg> */}
 
                         {/* 3D mortar */}
-                        <div style={{ position: "absolute", inset: 0 }}>
+                        <div
+                            style={{
+                                position: "absolute",
+                                inset: 0,
+                            }}
+                        >
                             {!isLowEnd && !isMobile ? (
-                                <SceneCanvas>
-                                    <MortarScene />
-                                </SceneCanvas>
+                                <>
+                                    {/* Glow backdrop — matches Hero's glow orb (blurred, soft) */}
+                                    <div
+                                        style={{
+                                            position: "absolute",
+                                            top: "35%",
+                                            left: "50%",
+                                            width: 400,
+                                            height: 400,
+                                            transform: "translate(-50%, -50%)",
+                                            background:
+                                                "radial-gradient(circle, rgba(74,124,89,0.4) 0%, transparent 70%)",
+                                            filter: "blur(40px)",
+                                            animation:
+                                                "glowPulse 4s ease-in-out infinite",
+                                            zIndex: 1,
+                                            pointerEvents: "none",
+                                        }}
+                                    />
+                                    {/* 3D canvas — unchanged size/position */}
+                                    <div
+                                        style={{
+                                            position: "absolute",
+                                            top: "-20%",
+                                            left: "50%",
+                                            width: "100%",
+                                            height: "100%",
+                                            transform: "translateX(-50%)",
+                                            zIndex: 1,
+                                            color: "transparent",
+                                            pointerEvents: "none",
+                                        }}
+                                    >
+                                        <SceneCanvas>
+                                            <MortarScene />
+                                        </SceneCanvas>
+                                    </div>
+                                </>
                             ) : (
                                 <div
                                     style={{
@@ -93,11 +133,14 @@ export default function Story() {
                                 >
                                     <div
                                         style={{
-                                            width: 200,
-                                            height: 200,
+                                            width: 400,
+                                            height: 400,
                                             borderRadius: "50%",
                                             background:
-                                                "radial-gradient(circle, rgba(74,124,89,0.2) 0%, transparent 70%)",
+                                                "radial-gradient(circle, rgba(74,124,89,0.18) 0%, transparent 70%)",
+                                            filter: "blur(40px)",
+                                            animation:
+                                                "glowPulse 4s ease-in-out infinite",
                                         }}
                                     />
                                 </div>

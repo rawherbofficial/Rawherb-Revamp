@@ -20,17 +20,6 @@ export default function Navbar() {
     const pathname = usePathname();
     const router = useRouter();
 
-    const toggleTheme = () => {
-        const html = document.documentElement;
-        if (html.dataset.theme === "light") {
-            html.dataset.theme = "dark";
-            localStorage.setItem("theme", "dark");
-        } else {
-            html.dataset.theme = "light";
-            localStorage.setItem("theme", "light");
-        }
-    };
-
     return (
         <>
             <nav
@@ -42,11 +31,12 @@ export default function Navbar() {
                     zIndex: 100,
                     padding: scrolled ? "16px 24px" : "24px 24px",
                     transition: "padding 0.4s cubic-bezier(0.16,1,0.3,1)",
-                    background: "rgba(8,10,6,0.92)",
+                    background: "rgba(var(--bg-rgb), 0.92)",
                     backdropFilter: "blur(8px)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    borderBottom: "0.1px solid var(--green)"
                 }}
             >
                 <Link
@@ -118,7 +108,7 @@ export default function Navbar() {
                     </div>
                 )}
 
-                <ThemeToggle/>
+                <ThemeToggle />
 
                 <div
                     style={{
@@ -203,7 +193,7 @@ export default function Navbar() {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        background: "rgba(8,10,6,0.97)",
+                        background: "rgba(var(--bg-rgb), 0.97)",
                         backdropFilter: "blur(12px)",
                         zIndex: 99,
                         display: "flex",

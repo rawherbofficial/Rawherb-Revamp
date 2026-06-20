@@ -7,7 +7,7 @@
     --green-l: #7db891;
     --green-xl: #b8dfc7;
     --amber: #c8933a;
-    --cream: #CFC5AF;
+    --cream: #dbd7cd;
     --cream-dim: #c9c0ae;
     --white: #f0ede6;
     color-scheme: dark;
@@ -20,8 +20,8 @@
     --green-l: #3f6b4d;
     --green-xl: #2f5640;
     --amber: #ad7a28;
-    --cream: #CFC5AF;
-    --cream-dim: #9b9384;
+    --cream: #1c1a14;
+    --cream-dim: #5e564a;
     --white: #14130f;
     color-scheme: light;
 }
@@ -31,11 +31,9 @@
     margin: 0;
     padding: 0;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     background: var(--bg);
     color: var(--cream);
@@ -52,11 +50,9 @@ body {
 ::-webkit-scrollbar {
     width: 4px;
 }
-
 ::-webkit-scrollbar-track {
     background: var(--bg);
 }
-
 ::-webkit-scrollbar-thumb {
     background: var(--green);
     border-radius: 0;
@@ -74,24 +70,19 @@ body {
         opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
-
 .reveal-d1 {
     transition-delay: 0.1s;
 }
-
 .reveal-d2 {
     transition-delay: 0.2s;
 }
-
 .reveal-d3 {
     transition-delay: 0.3s;
 }
-
 .reveal-d4 {
     transition-delay: 0.4s;
 }
@@ -110,6 +101,26 @@ body {
     100% {
         transform: translateY(-120vh) rotate(360deg);
         opacity: 0;
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.6;
+        scale: 1;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.08;
     }
 }
 
@@ -147,28 +158,23 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
 }
-
 .grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 48px;
 }
-
 .grid-4col {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2px;
 }
-
 .section-pad {
     padding: 120px 48px;
 }
-
 .nav-links {
     display: flex;
     gap: 40px;
 }
-
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
